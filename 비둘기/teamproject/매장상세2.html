@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/인천맛집사이트/INDEX/02_style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <title>리뷰페이지</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .title{
+           
+            width: 40%;
+            margin-top:90px ;
+            margin-left: 50%;
+            transform: translate(-50%);
+            text-align: center;
+        }
+        .title h2{
+            float: left;
+            font-size: 40px;
+            margin-left: 35%;
+        }
+        .title h4{
+            float: right;
+            margin-right: 10%;
+            margin-top: 10%;
+        }
+        li{
+            list-style-type: none;
+        }
+        main{
+            
+            width: 500px;
+            height: 400px;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .slide{
+            position: absolute;
+            left: 0;
+            top: 20%;
+            width: 2400px;
+            transition: left 0.5s ease-out;
+        }
+        .slide li:first-child{
+            margin-left: 100px;
+        }
+        .slide li:not(:last-child){
+            float: left;
+            margin-right: 100px;
+        }
+        .slide li{
+            float: left;
+        }
+        .controller span{
+            position: absolute;
+            background-color: transparent;
+            color: black;
+            text-align: center;
+            border-radius: 50%;
+             padding: 10px 20px;
+            top: 50%;
+            font-size: 1.3em;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .controller span:hover{
+    background-color: rgba(128, 128, 128, 0.11);}
+    .prev{
+        left: 10px;
+    }
+    .prev:hover{
+    transform: translateX(-10px);
+  }
+  .next{
+    right: 10px;
+  }
+  .next:hover{
+    transform: translateX(10px);
+  }
+  
+   #info{
+    width: 50%;
+    height: 200px;
+    margin-left: 50%;
+    margin-top: 70px;
+    transform:translate(-50%);
+    border: 1px solid black;
+  }
+  #info li{
+    font-size: 20px;
+    margin: 15px;
+    text-align: center;
+    line-height: 50px;
+  }
+  .tag{
+    width: 50%;
+    margin-left: 50%;
+    transform:translate(-50%);
+    
+  }
+  .tag button{
+    font-size: 30px;
+    margin: 5px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+  }
+  .tag button:hover{
+    cursor: pointer;
+  }
+#like{
+    color : #48120e;
+}
+#heart{
+    color : #48120e;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><a href="/teamproject/메인.html">인천 맛집 지도</a></h1>
+        </div>
+        <div class="title">
+
+            <h2>백채김치찌개</h2>
+            <h4>작성 아이디</h4>
+       
+    </div>
+    <div class="main">
+        <main>
+            <ul class="slide">
+                <li><img src="/인천맛집사이트/이미지/김치찌개.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="/인천맛집사이트/이미지/김치찌개.jpg" alt="" width="300px" height="300px"></li>
+                <li><img src="/인천맛집사이트/이미지/김치찌개.jpg" alt="" width="300px" height="300px"></li>
+            </ul>
+           <p class="controller">
+            <span class="prev">&lang;</span>
+            <span class="next">&rang;</span>
+           </p>
+        </main>
+    </div>
+            <ul id="info">
+                <li>인천 남동구 인하로 559 102호 백채김치찌개 구월아시아드점</li>
+                <li>032-472-7474</li>
+                <li>
+                   <a href=" https://100chae.com/">
+                       https://100chae.com/
+                    </a>
+                </li>
+            </ul>
+        
+        <div class="tag">
+            <button type="button" id="like" onclick="click()"><i  class="fa-solid fa-thumbs-up"></i></button>
+            <button type="button" id="heart" onclick="click()"><i  class="fa-solid fa-heart"></i></button>
+            
+        </div>
+        <div class="footer">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <a href="#">자주하는 질문</a>
+        </div>
+    </div>
+    <script>
+        const slide = document.querySelector('.slide');
+        const slideImg = document.querySelectorAll('.slide li')
+        let currentIdx = 0;
+        const slideCount = slideImg.length;
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        const slideWidth = 300;
+        const slideMargin = 100;
+
+        slide.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+        function moveSlide(num) {
+    slide.style.left = -num * 400 + 'px';
+    currentIdx = num;
+}
+
+        prev.addEventListener('click',function(){
+            if(currentIdx !== 0){
+                moveSlide(currentIdx -1);
+        }
+        });
+        next.addEventListener('click',function(){
+            if(currentIdx !== slideCount -1){
+                moveSlide(currentIdx + 1);
+            }
+        });
+        document.getElementById('like').addEventListener('click',function(){
+        
+            const icon = document.querySelector('#like');
+            
+            icon.style.color ="red";
+            
+    })
+
+    document.getElementById('heart').addEventListener('click',function(){
+        
+        const icon = document.querySelector('#heart');
+        icon.style.color ="red";
+})
+        
+    </script>
+</body>
+</html>

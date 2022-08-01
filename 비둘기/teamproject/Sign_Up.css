@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-align: center;
+    background-color: whitesmoke;
+}
+.container{
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin: 0px auto;
+}
+.title{
+    margin-top: 70px;
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: rgb(96,240,94);
+}
+/* .name{
+    width: 100%;
+} */
+#name{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+}
+#uid{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+}
+#password{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+}
+#passcheck{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+}
+#email{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid gainsboro;
+}
+#submit{
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    background-color: greenyellow;
+    border: 1px solid greenyellow;
+    cursor: pointer;
+}
+.error{
+    font-size: 15px;
+    height: 20px;
+    color: red;
+    font-weight: bold;
+}
